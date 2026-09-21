@@ -1,50 +1,14 @@
-import { motion } from 'framer-motion';
-import { ArrowRight, Train, RadioTower, Cable, Sun } from 'lucide-react';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { ArrowRight, Train, RadioTower, Cable, Sun, BarChart3, Users, ShieldCheck, Globe } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Home = () => {
-  const verticals = [
-    {
-      title: 'Railway Infrastructure',
-      description: 'Building robust and modernized railway networks across India.',
-      icon: <Train size={40} style={{ color: 'var(--color-primary)' }} />,
-      image: '/images/railway_infra_1790011408588.jpg',
-      path: '/railway',
-      color: 'var(--color-primary)',
-      delay: 0.1
-    },
-    {
-      title: 'Telecom Towers',
-      description: 'Erecting high-quality network towers to connect the unconnected.',
-      icon: <RadioTower size={40} style={{ color: 'var(--color-primary)' }} />,
-      image: '/images/telecom_towers_1790011421272.jpg',
-      path: '/network-towers',
-      color: 'var(--color-primary)',
-      delay: 0.2
-    },
-    {
-      title: 'OFC Networks',
-      description: 'Laying the optical fiber backbone for high-speed digital India.',
-      icon: <Cable size={40} style={{ color: 'var(--color-primary)' }} />,
-      image: '/images/ofc_networks_1790011434623.jpg',
-      path: '/ofc',
-      color: 'var(--color-primary)',
-      delay: 0.3
-    },
-    {
-      title: 'Solar Energy',
-      description: '369AKR Universe: Sustainable solar solutions for a greener tomorrow.',
-      icon: <Sun size={40} style={{ color: 'var(--color-primary)' }} />,
-      image: '/images/solar_energy_1790011454687.jpg',
-      path: '/solar',
-      color: 'var(--color-primary)',
-      delay: 0.4
-    }
-  ];
+  const { scrollYProgress } = useScroll();
+  const y = useTransform(scrollYProgress, [0, 1], [0, 300]);
 
   return (
-    <div>
-      {/* Hero Section */}
+    <div className="bg-pattern">
+      {/* Premium Hero Section */}
       <section 
         style={{ 
           minHeight: '100vh', 
@@ -52,104 +16,150 @@ const Home = () => {
           alignItems: 'center', 
           position: 'relative',
           overflow: 'hidden',
-          backgroundColor: 'var(--color-primary)'
+          backgroundColor: 'var(--color-secondary)'
         }}
       >
-        <div style={{ position: 'absolute', inset: 0, zIndex: 1 }}>
-          <img src="/images/railway_infra_1790011408588.jpg" alt="Infrastructure" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-          <div style={{ position: 'absolute', inset: 0, backgroundColor: 'rgba(15, 23, 42, 0.85)' }}></div>
-        </div>
+        <motion.div style={{ position: 'absolute', inset: 0, zIndex: 1, y }}>
+          <img src="/images/railway_infra_1790011408588.jpg" alt="Infrastructure" style={{ width: '100%', height: '120%', objectFit: 'cover' }} />
+          <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, rgba(15, 23, 42, 0.95) 0%, rgba(15, 23, 42, 0.7) 100%)' }}></div>
+        </motion.div>
 
         <div className="container" style={{ position: 'relative', zIndex: 10 }}>
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            style={{ maxWidth: '800px' }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            style={{ maxWidth: '900px' }}
           >
-            <h1 style={{ fontSize: 'clamp(3rem, 8vw, 5.5rem)', color: 'white', marginBottom: '1.5rem', letterSpacing: '-0.03em' }}>
-              Building India's <br />
-              <span style={{ color: 'var(--color-accent)' }}>Core Infrastructure</span>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '2rem' }}>
+              <div style={{ height: '2px', width: '40px', backgroundColor: 'var(--color-accent)' }}></div>
+              <span style={{ color: 'var(--color-accent)', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase' }}>EPC Infrastructure Conglomerate</span>
+            </div>
+            
+            <h1 style={{ fontSize: 'clamp(3.5rem, 8vw, 6.5rem)', color: 'white', marginBottom: '2rem', lineHeight: 1.05 }}>
+              Engineering the <br />
+              <span style={{ color: 'transparent', WebkitTextStroke: '1px var(--color-surface)', WebkitTextFillColor: 'transparent' }}>Framework</span> of Tomorrow.
             </h1>
-            <p style={{ fontSize: '1.25rem', color: '#CBD5E1', marginBottom: '2.5rem', maxWidth: '600px', lineHeight: 1.8 }}>
-              From modernized railways and telecom towers to expansive OFC networks and renewable solar energy. We engineer the future.
+            
+            <p style={{ fontSize: '1.25rem', color: '#94A3B8', marginBottom: '3rem', maxWidth: '650px', lineHeight: 1.8 }}>
+              369 AKR Universe executes massive-scale national infrastructure projects spanning Railways, Telecom Networks, Optical Fiber, and Renewable Energy.
             </p>
             
-            <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-              <Link to="/about" className="btn btn-primary" style={{ padding: '1rem 2rem', fontSize: '1.1rem' }}>
-                Explore Our Group <ArrowRight size={20} />
+            <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
+              <Link to="/about" className="btn btn-primary" style={{ padding: '1.25rem 2.5rem', fontSize: '1.1rem' }}>
+                Discover Our Impact <ArrowRight size={20} />
               </Link>
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Verticals Section */}
-      <section className="section" style={{ backgroundColor: 'var(--color-surface-alt)' }}>
+      {/* Corporate Impact Metrics */}
+      <section className="section bg-pattern-dark" style={{ borderBottom: '1px solid #1E293B', borderTop: '1px solid #1E293B' }}>
         <div className="container">
-          <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
-            <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', marginBottom: '1rem', color: 'var(--color-secondary)' }}>Our Expertise</h2>
-            <div style={{ width: '60px', height: '4px', backgroundColor: 'var(--color-accent)', margin: '0 auto 1.5rem' }}></div>
-            <p style={{ color: 'var(--color-text-light)', fontSize: '1.1rem', maxWidth: '600px', margin: '0 auto' }}>
-              Delivering excellence across four critical infrastructure sectors, driving national growth and connectivity.
-            </p>
-          </div>
-
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2rem' }}>
-            {verticals.map((v, idx) => (
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '3rem' }}>
+            {[
+              { icon: <Globe />, value: "Pan-India", label: "Operational Presence" },
+              { icon: <BarChart3 />, value: "250+", label: "Projects Completed" },
+              { icon: <Users />, value: "10K+", label: "Skilled Workforce" },
+              { icon: <ShieldCheck />, value: "ISO 9001", label: "Certified Quality" }
+            ].map((stat, idx) => (
               <motion.div 
                 key={idx}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: v.delay, duration: 0.5 }}
-                className="card-solid"
-                style={{ display: 'flex', flexDirection: 'column', overflow: 'hidden' }}
+                transition={{ delay: idx * 0.1, duration: 0.6 }}
+                style={{ display: 'flex', flexDirection: 'column', gap: '1rem', color: 'white' }}
               >
-                <div style={{ height: '200px', width: '100%', overflow: 'hidden', position: 'relative' }}>
-                  <img src={v.image} alt={v.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                  <div style={{ position: 'absolute', top: '1rem', right: '1rem', width: '50px', height: '50px', borderRadius: 'var(--radius-sm)', background: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: 'var(--shadow-sm)' }}>
-                    {v.icon}
-                  </div>
-                </div>
-                <div style={{ padding: '2rem' }}>
-                  <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem', color: 'var(--color-secondary)' }}>{v.title}</h3>
-                  <p style={{ color: 'var(--color-text-light)', marginBottom: '2rem' }}>{v.description}</p>
-                  <Link to={v.path} style={{ 
-                    display: 'inline-flex', 
-                    alignItems: 'center', 
-                    gap: '0.5rem', 
-                    color: 'var(--color-accent)', 
-                    fontWeight: 600 
-                  }}>
-                    View Projects <ArrowRight size={18} />
-                  </Link>
-                </div>
+                <div style={{ color: 'var(--color-accent)' }}>{stat.icon}</div>
+                <div style={{ fontSize: '3.5rem', fontWeight: 800, lineHeight: 1 }}>{stat.value}</div>
+                <div style={{ color: '#94A3B8', fontSize: '1.1rem', fontWeight: 500 }}>{stat.label}</div>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Metrics Section */}
-      <section className="section" style={{ background: 'var(--color-primary)', color: 'white' }}>
+      {/* Bento Grid: Featured Capabilities */}
+      <section className="section" style={{ backgroundColor: 'var(--color-surface-alt)' }}>
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '3rem', textAlign: 'center' }}>
-            <motion.div initial={{ scale: 0.8, opacity: 0 }} whileInView={{ scale: 1, opacity: 1 }} viewport={{ once: true }}>
-              <div style={{ fontSize: '4rem', fontWeight: 800, marginBottom: '0.5rem', color: 'var(--color-accent)' }}>250+</div>
-              <div style={{ fontSize: '1.1rem', color: '#CBD5E1' }}>Projects Completed</div>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '4rem', flexWrap: 'wrap', gap: '2rem' }}>
+            <div style={{ maxWidth: '600px' }}>
+              <h2 style={{ fontSize: 'clamp(2.5rem, 4vw, 3.5rem)', color: 'var(--color-secondary)' }}>Strategic Capabilities</h2>
+              <p style={{ color: 'var(--color-text-light)', fontSize: '1.1rem', marginTop: '1rem', lineHeight: 1.8 }}>
+                We deliver turnkey EPC solutions across four critical sectors, driving the nation's economic growth and technological advancement.
+              </p>
+            </div>
+            <Link to="/about" className="btn btn-outline">View Full Profile</Link>
+          </div>
+
+          <div className="bento-grid">
+            {/* Large Card: Railway */}
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              className="card-solid bento-item" 
+              style={{ gridColumn: 'span 12', '@media (min-width: 1024px)': { gridColumn: 'span 8' }, padding: '3rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', minHeight: '400px', backgroundImage: 'linear-gradient(to right, rgba(15,23,42,0.9), rgba(15,23,42,0.6)), url(/images/railway_infra_1790011408588.jpg)', backgroundSize: 'cover', backgroundPosition: 'center', color: 'white' }}
+            >
+              <Train size={48} style={{ color: 'var(--color-accent)' }} />
+              <div>
+                <h3 style={{ fontSize: '2.5rem', marginBottom: '1rem', color: 'white' }}>Railway Infrastructure</h3>
+                <p style={{ fontSize: '1.1rem', color: '#CBD5E1', maxWidth: '500px', marginBottom: '2rem' }}>Heavy civil construction, track laying, and advanced electrification for high-speed transit networks.</p>
+                <Link to="/railway" className="btn btn-primary">Explore Division <ArrowRight size={18} /></Link>
+              </div>
             </motion.div>
-            <motion.div initial={{ scale: 0.8, opacity: 0 }} whileInView={{ scale: 1, opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.1 }}>
-              <div style={{ fontSize: '4rem', fontWeight: 800, marginBottom: '0.5rem', color: 'var(--color-accent)' }}>15+</div>
-              <div style={{ fontSize: '1.1rem', color: '#CBD5E1' }}>Years Experience</div>
+
+            {/* Medium Card: Solar */}
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="card-solid bento-item" 
+              style={{ gridColumn: 'span 12', '@media (min-width: 1024px)': { gridColumn: 'span 4' }, padding: '3rem', minHeight: '400px' }}
+            >
+              <div style={{ marginBottom: '2rem', display: 'inline-block', padding: '1rem', backgroundColor: 'rgba(217, 119, 6, 0.1)', borderRadius: 'var(--radius-full)' }}>
+                <Sun size={32} style={{ color: 'var(--color-accent)' }} />
+              </div>
+              <h3 style={{ fontSize: '2rem', marginBottom: '1rem', color: 'var(--color-secondary)' }}>Solar Energy</h3>
+              <p style={{ color: 'var(--color-text-light)', marginBottom: 'auto', lineHeight: 1.6 }}>Utility-scale solar farms and industrial rooftop solutions driving the green transition.</p>
+              <Link to="/solar" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', color: 'var(--color-primary)', fontWeight: 700, marginTop: '2rem' }}>Learn More <ArrowRight size={18} /></Link>
             </motion.div>
-            <motion.div initial={{ scale: 0.8, opacity: 0 }} whileInView={{ scale: 1, opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.2 }}>
-              <div style={{ fontSize: '4rem', fontWeight: 800, marginBottom: '0.5rem', color: 'var(--color-accent)' }}>10K+</div>
-              <div style={{ fontSize: '1.1rem', color: '#CBD5E1' }}>Km OFC Laid</div>
+
+            {/* Medium Card: Towers */}
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="card-solid bento-item" 
+              style={{ gridColumn: 'span 12', '@media (min-width: 1024px)': { gridColumn: 'span 6' }, padding: '3rem' }}
+            >
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '2rem' }}>
+                <h3 style={{ fontSize: '2rem', color: 'var(--color-secondary)' }}>Telecom Towers</h3>
+                <RadioTower size={40} style={{ color: 'var(--color-accent-tower)' }} />
+              </div>
+              <p style={{ color: 'var(--color-text-light)', marginBottom: '2rem', fontSize: '1.1rem' }}>Greenfield tower erection and 5G upgrades for tier-1 telecom operators.</p>
+              <Link to="/network-towers" className="btn btn-outline" style={{ width: 'fit-content' }}>View Expertise</Link>
             </motion.div>
-            <motion.div initial={{ scale: 0.8, opacity: 0 }} whileInView={{ scale: 1, opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.3 }}>
-              <div style={{ fontSize: '4rem', fontWeight: 800, marginBottom: '0.5rem', color: 'var(--color-accent)' }}>500+</div>
-              <div style={{ fontSize: '1.1rem', color: '#CBD5E1' }}>Happy Clients</div>
+
+            {/* Medium Card: OFC */}
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3 }}
+              className="card-solid bento-item" 
+              style={{ gridColumn: 'span 12', '@media (min-width: 1024px)': { gridColumn: 'span 6' }, padding: '3rem', backgroundColor: 'var(--color-primary)', color: 'white' }}
+            >
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '2rem' }}>
+                <h3 style={{ fontSize: '2rem', color: 'white' }}>Optical Fiber (OFC)</h3>
+                <Cable size={40} style={{ color: 'var(--color-accent-ofc)' }} />
+              </div>
+              <p style={{ color: '#CBD5E1', marginBottom: '2rem', fontSize: '1.1rem' }}>Laying the high-speed data backbone through complex urban and rural terrains.</p>
+              <Link to="/ofc" className="btn btn-primary" style={{ width: 'fit-content', backgroundColor: 'var(--color-accent-ofc)' }}>View Expertise</Link>
             </motion.div>
           </div>
         </div>
