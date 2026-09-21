@@ -9,7 +9,7 @@ const Footer = () => {
         {/* Company Info */}
         <div>
           <h2 style={{ fontSize: '1.5rem', fontWeight: 800, marginBottom: '1rem', color: 'white' }}>
-            369AKR <span className="gradient-text">GROUP</span>
+            369AKR <span style={{ color: 'var(--color-accent)' }}>GROUP</span>
           </h2>
           <p style={{ color: 'var(--color-text-light)', marginBottom: '1.5rem' }}>
             Pioneering robust infrastructure solutions across Railways, Telecom, OFC, and Renewable Energy for a stronger India.
@@ -38,15 +38,15 @@ const Footer = () => {
           <h3 style={{ fontSize: '1.1rem', fontWeight: 600, marginBottom: '1.5rem', color: 'white' }}>Contact Us</h3>
           <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '1rem', color: 'var(--color-text-light)' }}>
             <li style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start' }}>
-              <MapPin size={20} style={{ color: 'var(--color-primary)', flexShrink: 0, marginTop: '2px' }} />
+              <MapPin size={20} style={{ color: 'var(--color-accent)', flexShrink: 0, marginTop: '2px' }} />
               <span>Sube Singh X3-4624 Rohtak, Haryana India 124001</span>
             </li>
             <li style={{ display: 'flex', gap: '0.75rem', alignItems: 'center' }}>
-              <Phone size={20} style={{ color: 'var(--color-primary)', flexShrink: 0 }} />
+              <Phone size={20} style={{ color: 'var(--color-accent)', flexShrink: 0 }} />
               <span>+91 98120 37550 / +91 90509 37550</span>
             </li>
             <li style={{ display: 'flex', gap: '0.75rem', alignItems: 'center' }}>
-              <Mail size={20} style={{ color: 'var(--color-primary)', flexShrink: 0 }} />
+              <Mail size={20} style={{ color: 'var(--color-accent)', flexShrink: 0 }} />
               <span>info@369akruniverse.in</span>
             </li>
           </ul>

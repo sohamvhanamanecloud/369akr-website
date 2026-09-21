@@ -33,17 +33,18 @@ const Navbar = () => {
   return (
     <nav 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'glass py-4 shadow-sm' : 'bg-transparent py-6'
+        scrolled ? 'card-solid py-4' : 'bg-transparent py-6'
       }`}
       style={{ 
         display: 'flex', 
         justifyContent: 'space-between', 
         alignItems: 'center',
         padding: scrolled ? '1rem 2rem' : '1.5rem 2rem',
+        borderBottom: scrolled ? '1px solid #E2E8F0' : 'none'
       }}
     >
       <div className="logo" style={{ fontWeight: 800, fontSize: '1.5rem', letterSpacing: '-0.02em', color: 'var(--color-primary)' }}>
-        <Link to="/">369AKR <span className="gradient-text">GROUP</span></Link>
+        <Link to="/">369AKR <span style={{ color: 'var(--color-accent)' }}>GROUP</span></Link>
       </div>
 
       {/* Desktop Nav */}
@@ -54,7 +55,7 @@ const Navbar = () => {
             to={link.path}
             style={{ 
               fontWeight: 600, 
-              color: location.pathname === link.path ? 'var(--color-primary)' : 'var(--color-text)',
+              color: location.pathname === link.path ? 'var(--color-accent)' : 'var(--color-text)',
               position: 'relative'
             }}
           >
@@ -68,7 +69,7 @@ const Navbar = () => {
                   left: 0,
                   right: 0,
                   height: '2px',
-                  background: 'var(--color-primary)',
+                  background: 'var(--color-accent)',
                   borderRadius: '2px'
                 }}
               />
@@ -107,7 +108,7 @@ const Navbar = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="glass"
+            className="card-solid"
             style={{
               position: 'absolute',
               top: '100%',
@@ -118,7 +119,6 @@ const Navbar = () => {
               padding: '2rem',
               gap: '1.5rem',
               borderBottom: '1px solid rgba(0,0,0,0.1)',
-              boxShadow: 'var(--shadow-md)'
             }}
           >
             {navLinks.map((link) => (
@@ -128,7 +128,7 @@ const Navbar = () => {
                 style={{ 
                   fontWeight: 600, 
                   fontSize: '1.25rem',
-                  color: location.pathname === link.path ? 'var(--color-primary)' : 'var(--color-text)'
+                  color: location.pathname === link.path ? 'var(--color-accent)' : 'var(--color-text)'
                 }}
               >
                 {link.name}
