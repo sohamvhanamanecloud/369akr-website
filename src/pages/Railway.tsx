@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ArrowRight, CheckCircle2, Train, Map, HardHat, ShieldCheck, Activity, Cog, ArrowUpRight, LocateFixed } from 'lucide-react';
+import { ArrowRight, Train, Map, HardHat, ShieldCheck, Activity, Cog, ArrowUpRight, LocateFixed } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Railway = () => {

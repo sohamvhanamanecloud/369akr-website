@@ -100,8 +100,8 @@ const Home = () => {
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className="card-solid bento-item" 
-              style={{ gridColumn: 'span 12', '@media (min-width: 1024px)': { gridColumn: 'span 8' }, padding: '3rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', minHeight: '400px', backgroundImage: 'linear-gradient(to right, rgba(15,23,42,0.9), rgba(15,23,42,0.6)), url(/images/railway_infra_1790011408588.jpg)', backgroundSize: 'cover', backgroundPosition: 'center', color: 'white' }}
+              className="card-solid bento-item large" 
+              style={{ padding: '3rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', minHeight: '400px', backgroundImage: 'linear-gradient(to right, rgba(15,23,42,0.9), rgba(15,23,42,0.6)), url(/images/railway_infra_1790011408588.jpg)', backgroundSize: 'cover', backgroundPosition: 'center', color: 'white' }}
             >
               <Train size={48} style={{ color: 'var(--color-accent)' }} />
               <div>
@@ -117,8 +117,8 @@ const Home = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="card-solid bento-item" 
-              style={{ gridColumn: 'span 12', '@media (min-width: 1024px)': { gridColumn: 'span 4' }, padding: '3rem', minHeight: '400px' }}
+              className="card-solid bento-item medium-alt" 
+              style={{ padding: '3rem', minHeight: '400px' }}
             >
               <div style={{ marginBottom: '2rem', display: 'inline-block', padding: '1rem', backgroundColor: 'rgba(217, 119, 6, 0.1)', borderRadius: 'var(--radius-full)' }}>
                 <Sun size={32} style={{ color: 'var(--color-accent)' }} />
@@ -134,8 +134,8 @@ const Home = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="card-solid bento-item" 
-              style={{ gridColumn: 'span 12', '@media (min-width: 1024px)': { gridColumn: 'span 6' }, padding: '3rem' }}
+              className="card-solid bento-item medium" 
+              style={{ padding: '3rem' }}
             >
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '2rem' }}>
                 <h3 style={{ fontSize: '2rem', color: 'var(--color-secondary)' }}>Telecom Towers</h3>
@@ -151,8 +151,8 @@ const Home = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.3 }}
-              className="card-solid bento-item" 
-              style={{ gridColumn: 'span 12', '@media (min-width: 1024px)': { gridColumn: 'span 6' }, padding: '3rem', backgroundColor: 'var(--color-primary)', color: 'white' }}
+              className="card-solid bento-item medium" 
+              style={{ padding: '3rem', backgroundColor: 'var(--color-primary)', color: 'white' }}
             >
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '2rem' }}>
                 <h3 style={{ fontSize: '2rem', color: 'white' }}>Optical Fiber (OFC)</h3>

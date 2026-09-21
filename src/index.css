@@ -131,6 +131,25 @@ button {
   flex-direction: column;
 }
 
+.bento-item.large {
+  grid-column: span 12;
+}
+.bento-item.medium {
+  grid-column: span 12;
+}
+
+@media (min-width: 1024px) {
+  .bento-item.large {
+    grid-column: span 8;
+  }
+  .bento-item.medium {
+    grid-column: span 6;
+  }
+  .bento-item.medium-alt {
+    grid-column: span 4;
+  }
+}
+
 /* Base button styles */
 .btn {
   display: inline-flex;
