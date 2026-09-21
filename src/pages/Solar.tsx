@@ -1,13 +1,13 @@
 import { motion } from 'framer-motion';
-import { ArrowRight, CheckCircle2, Sun, BatteryCharging, Factory, Home as HomeIcon } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Sun, BatteryCharging, Factory, Home as HomeIcon, LineChart, Leaf } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Solar = () => {
   const features = [
-    { icon: <Factory style={{ color: 'var(--color-accent-solar)' }} size={32} />, title: "Utility-Scale Farms", desc: "Design and deployment of massive MW-scale solar power plants." },
-    { icon: <HomeIcon style={{ color: 'var(--color-accent-solar)' }} size={32} />, title: "Rooftop Solutions", desc: "Commercial and residential rooftop solar panel integration." },
-    { icon: <BatteryCharging style={{ color: 'var(--color-accent-solar)' }} size={32} />, title: "Energy Storage", desc: "Advanced battery systems for uninterrupted green power supply." },
-    { icon: <Sun style={{ color: 'var(--color-accent-solar)' }} size={32} />, title: "O&M", desc: "Comprehensive operations and maintenance to maximize panel efficiency." }
+    { icon: <Factory style={{ color: 'var(--color-accent-solar)' }} size={32} />, title: "Utility-Scale Farms", desc: "End-to-end design, engineering, and deployment of massive MW-scale ground-mounted solar power plants." },
+    { icon: <HomeIcon style={{ color: 'var(--color-accent-solar)' }} size={32} />, title: "Rooftop Solutions", desc: "Customized commercial and industrial (C&I) rooftop solar panel integration to offset energy costs." },
+    { icon: <BatteryCharging style={{ color: 'var(--color-accent-solar)' }} size={32} />, title: "Energy Storage", desc: "Advanced Battery Energy Storage Systems (BESS) for uninterrupted, round-the-clock green power supply." },
+    { icon: <Sun style={{ color: 'var(--color-accent-solar)' }} size={32} />, title: "O&M Services", desc: "Comprehensive operations, robotic cleaning, and predictive maintenance to maximize panel efficiency." }
   ];
 
   return (
@@ -22,10 +22,10 @@ const Solar = () => {
         <div className="container" style={{ position: 'relative', zIndex: 10 }}>
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
             <h1 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', color: 'white', marginBottom: '1rem' }}>
-              369 AKR <span style={{ color: 'var(--color-accent-solar)' }}>Universe</span>
+              Solar <span style={{ color: 'var(--color-accent-solar)' }}>Energy</span>
             </h1>
-            <p style={{ fontSize: '1.25rem', color: '#e2e8f0', maxWidth: '600px', lineHeight: 1.6 }}>
-              Harnessing the power of the sun. We provide sustainable, innovative solar energy solutions for a cleaner, greener tomorrow.
+            <p style={{ fontSize: '1.25rem', color: '#e2e8f0', maxWidth: '700px', lineHeight: 1.6 }}>
+              Harnessing the immense power of the sun. We provide sustainable, innovative EPC solar energy solutions for a cleaner, carbon-neutral tomorrow.
             </p>
           </motion.div>
         </div>
@@ -38,19 +38,24 @@ const Solar = () => {
           <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
             <h2 style={{ fontSize: '2.5rem', marginBottom: '1.5rem', color: 'var(--color-secondary)' }}>Renewable Energy Leadership</h2>
             <p style={{ fontSize: '1.1rem', color: 'var(--color-text-light)', marginBottom: '1.5rem', lineHeight: 1.8 }}>
-              Our legacy began with solar, and it remains a core pillar of our group. 369 AKR Universe specializes in end-to-end solar EPC (Engineering, Procurement, and Construction) services.
+              Our legacy began with solar, and it remains the driving force behind 369 AKR Universe. We specialize in comprehensive solar EPC (Engineering, Procurement, and Construction) services, navigating complex regulatory environments and technical challenges to bring utility-scale energy projects to life.
             </p>
             <p style={{ fontSize: '1.1rem', color: 'var(--color-text-light)', marginBottom: '2rem', lineHeight: 1.8 }}>
-              We are dedicated to helping businesses and communities transition to carbon-neutral operations. Our state-of-the-art solar installations consistently deliver high yields and long-term durability.
+              We are deeply committed to helping heavy industries, commercial enterprises, and communities transition to carbon-neutral operations. By leveraging top-tier Tier-1 photovoltaic modules, advanced string inverters, and precision solar tracking systems, our installations consistently deliver exceptional energy yields and long-term durability.
             </p>
             
-            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-              {['Turnkey EPC project execution', 'High-efficiency monocrystalline panels', 'Grid-tied and off-grid solutions', 'Smart monitoring via IoT'].map((item, i) => (
-                <li key={i} style={{ display: 'flex', alignItems: 'center', gap: '1rem', fontSize: '1.1rem', color: 'var(--color-secondary)' }}>
-                  <CheckCircle2 style={{ color: 'var(--color-accent-solar)', flexShrink: 0 }} /> {item}
-                </li>
-              ))}
-            </ul>
+            <div className="card-solid" style={{ padding: '2rem', backgroundColor: 'var(--color-surface)' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem' }}>
+                <Leaf color="var(--color-accent-solar)" size={28} />
+                <h3 style={{ fontSize: '1.5rem', color: 'var(--color-secondary)' }}>Environmental Impact</h3>
+              </div>
+              <p style={{ color: 'var(--color-text-light)', marginBottom: '1rem' }}>
+                Every Megawatt of solar power we install significantly offsets fossil fuel dependence, preventing thousands of tonnes of CO2 emissions annually. We view every project as a direct investment in the planet's future.
+              </p>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--color-secondary)', fontWeight: 'bold' }}>
+                <LineChart size={18} color="var(--color-accent-solar)" /> High ROI & Accelerated Payback Periods
+              </div>
+            </div>
           </motion.div>
 
           {/* Features Grid */}
@@ -59,7 +64,7 @@ const Solar = () => {
               <div key={i} className="card-solid" style={{ padding: '2rem' }}>
                 <div style={{ marginBottom: '1rem' }}>{feat.icon}</div>
                 <h3 style={{ fontSize: '1.25rem', marginBottom: '0.5rem', color: 'var(--color-secondary)' }}>{feat.title}</h3>
-                <p style={{ color: 'var(--color-text-light)' }}>{feat.desc}</p>
+                <p style={{ color: 'var(--color-text-light)', fontSize: '0.95rem' }}>{feat.desc}</p>
               </div>
             ))}
           </motion.div>
@@ -69,7 +74,7 @@ const Solar = () => {
         {/* CTA */}
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} style={{ marginTop: '5rem', padding: '4rem', backgroundColor: 'var(--color-secondary)', borderRadius: 'var(--radius-lg)', textAlign: 'center' }}>
           <h2 style={{ fontSize: '2.5rem', color: 'white', marginBottom: '1rem' }}>Transition to clean energy today.</h2>
-          <p style={{ fontSize: '1.25rem', color: '#94a3b8', marginBottom: '2rem' }}>Discover how much you can save with a customized solar installation.</p>
+          <p style={{ fontSize: '1.25rem', color: '#94a3b8', marginBottom: '2rem' }}>Discover how much your enterprise can save with a customized solar installation.</p>
           <Link to="/contact" className="btn btn-primary" style={{ backgroundColor: 'var(--color-accent-solar)', color: 'black', border: 'none' }}>
             Request a Consultation <ArrowRight size={20} />
           </Link>

@@ -1,13 +1,13 @@
 import { motion } from 'framer-motion';
-import { ArrowRight, CheckCircle2, RadioTower, Signal, Wifi, Zap } from 'lucide-react';
+import { ArrowRight, CheckCircle2, RadioTower, Signal, Wifi, Zap, Globe2, Shield, Wrench } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const NetworkTowers = () => {
   const features = [
-    { icon: <RadioTower style={{ color: 'var(--color-accent-tower)' }} size={32} />, title: "Tower Erection", desc: "Greenfield installation of macro-cell and micro-cell towers." },
-    { icon: <Signal style={{ color: 'var(--color-accent-tower)' }} size={32} />, title: "5G Upgrades", desc: "Retrofitting and upgrading existing infrastructure for next-gen networks." },
-    { icon: <Zap style={{ color: 'var(--color-accent-tower)' }} size={32} />, title: "Power Solutions", desc: "Reliable power backup and sustainable energy integration." },
-    { icon: <Wifi style={{ color: 'var(--color-accent-tower)' }} size={32} />, title: "Network Maintenance", desc: "24/7 monitoring and structural maintenance services." }
+    { icon: <RadioTower style={{ color: 'var(--color-accent-tower)' }} size={32} />, title: "Tower Erection", desc: "Greenfield installation of macro-cell and micro-cell towers, built to withstand extreme weather conditions." },
+    { icon: <Signal style={{ color: 'var(--color-accent-tower)' }} size={32} />, title: "5G Upgrades", desc: "Retrofitting and upgrading existing infrastructure to support the massive bandwidth requirements of next-gen 5G networks." },
+    { icon: <Zap style={{ color: 'var(--color-accent-tower)' }} size={32} />, title: "Power Solutions", desc: "Reliable power backup, DG sets, and sustainable solar energy integration for remote off-grid towers." },
+    { icon: <Wifi style={{ color: 'var(--color-accent-tower)' }} size={32} />, title: "Network Maintenance", desc: "24/7 active and passive monitoring, predictive maintenance, and immediate structural repair services." }
   ];
 
   return (
@@ -24,8 +24,8 @@ const NetworkTowers = () => {
             <h1 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', color: 'white', marginBottom: '1rem' }}>
               Telecom <span style={{ color: 'var(--color-accent-tower)' }}>Towers</span>
             </h1>
-            <p style={{ fontSize: '1.25rem', color: '#e2e8f0', maxWidth: '600px', lineHeight: 1.6 }}>
-              Erecting high-quality network infrastructure to bridge the digital divide. We enable seamless connectivity everywhere.
+            <p style={{ fontSize: '1.25rem', color: '#e2e8f0', maxWidth: '700px', lineHeight: 1.6 }}>
+              Erecting high-quality network infrastructure to bridge the digital divide. We enable seamless, uninterrupted connectivity everywhere.
             </p>
           </motion.div>
         </div>
@@ -38,19 +38,26 @@ const NetworkTowers = () => {
           <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
             <h2 style={{ fontSize: '2.5rem', marginBottom: '1.5rem', color: 'var(--color-secondary)' }}>Connecting the Unconnected</h2>
             <p style={{ fontSize: '1.1rem', color: 'var(--color-text-light)', marginBottom: '1.5rem', lineHeight: 1.8 }}>
-              As India experiences an unprecedented digital boom, robust telecommunication infrastructure is more critical than ever. 369 AKR Group specializes in the deployment, maintenance, and upgrading of telecom towers across urban and remote landscapes.
+              As India experiences an unprecedented digital boom, robust telecommunication infrastructure is more critical than ever. The demand for seamless mobile connectivity, high-speed internet, and smart city infrastructure is skyrocketing. 369 AKR Universe specializes in the turnkey deployment, maintenance, and upgrading of telecom towers across dense urban centers and the most remote rural landscapes.
             </p>
             <p style={{ fontSize: '1.1rem', color: 'var(--color-text-light)', marginBottom: '2rem', lineHeight: 1.8 }}>
-              Our dedicated teams work alongside leading telecom operators to rapidly scale their network footprint, ensuring structural integrity and optimizing for the rollout of 5G technologies.
+              Our dedicated teams work alongside leading Tier-1 telecom operators and infrastructure providers to rapidly scale their network footprint. From site acquisition and soil testing to foundation laying, structural erection, and active equipment installation, we handle the entire lifecycle of telecom infrastructure.
             </p>
             
-            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-              {['Rapid deployment capabilities', 'Structural health auditing', 'Integration of green power solutions', 'Site acquisition and regulatory clearance'].map((item, i) => (
-                <li key={i} style={{ display: 'flex', alignItems: 'center', gap: '1rem', fontSize: '1.1rem', color: 'var(--color-secondary)' }}>
-                  <CheckCircle2 style={{ color: 'var(--color-accent-tower)', flexShrink: 0 }} /> {item}
+            <div className="card-solid" style={{ padding: '2rem', marginBottom: '2rem' }}>
+              <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem', color: 'var(--color-secondary)' }}>Core Capabilities</h3>
+              <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                <li style={{ display: 'flex', alignItems: 'center', gap: '1rem', color: 'var(--color-text)' }}>
+                  <Globe2 size={20} color="var(--color-accent-tower)" /> Site Survey & Acquisition
                 </li>
-              ))}
-            </ul>
+                <li style={{ display: 'flex', alignItems: 'center', gap: '1rem', color: 'var(--color-text)' }}>
+                  <Shield size={20} color="var(--color-accent-tower)" /> Structural Health Auditing & Strengthening
+                </li>
+                <li style={{ display: 'flex', alignItems: 'center', gap: '1rem', color: 'var(--color-text)' }}>
+                  <Wrench size={20} color="var(--color-accent-tower)" /> Passive Infrastructure O&M
+                </li>
+              </ul>
+            </div>
           </motion.div>
 
           {/* Features Grid */}
@@ -59,7 +66,7 @@ const NetworkTowers = () => {
               <div key={i} className="card-solid" style={{ padding: '2rem' }}>
                 <div style={{ marginBottom: '1rem' }}>{feat.icon}</div>
                 <h3 style={{ fontSize: '1.25rem', marginBottom: '0.5rem', color: 'var(--color-secondary)' }}>{feat.title}</h3>
-                <p style={{ color: 'var(--color-text-light)' }}>{feat.desc}</p>
+                <p style={{ color: 'var(--color-text-light)', fontSize: '0.95rem' }}>{feat.desc}</p>
               </div>
             ))}
           </motion.div>
@@ -69,7 +76,7 @@ const NetworkTowers = () => {
         {/* CTA */}
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} style={{ marginTop: '5rem', padding: '4rem', backgroundColor: 'var(--color-secondary)', borderRadius: 'var(--radius-lg)', textAlign: 'center' }}>
           <h2 style={{ fontSize: '2.5rem', color: 'white', marginBottom: '1rem' }}>Expand your network coverage with us.</h2>
-          <p style={{ fontSize: '1.25rem', color: '#94a3b8', marginBottom: '2rem' }}>We provide end-to-end infrastructure solutions for telecom operators.</p>
+          <p style={{ fontSize: '1.25rem', color: '#94a3b8', marginBottom: '2rem' }}>We provide end-to-end infrastructure solutions for ambitious telecom operators.</p>
           <Link to="/contact" className="btn btn-primary" style={{ backgroundColor: 'var(--color-accent-tower)', color: 'white', border: 'none' }}>
             Contact Our Team <ArrowRight size={20} />
           </Link>
