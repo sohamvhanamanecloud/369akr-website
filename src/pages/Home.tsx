@@ -1,10 +1,28 @@
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { ArrowRight, Train, RadioTower, Cable, Sun, BarChart3, Users, ShieldCheck, Globe } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
+import { ArrowRight, Train, RadioTower, Cable, Sun, BarChart3, Users, ShieldCheck, Globe, Building2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import AnimatedCounter from '../components/AnimatedCounter';
+
+const heroImages = [
+  "/images/railway_infra_1790011408588.jpg",
+  "/images/telecom_towers_1790011421272.jpg",
+  "/images/solar_energy_1790011454687.jpg"
+];
 
 const Home = () => {
   const { scrollYProgress } = useScroll();
   const y = useTransform(scrollYProgress, [0, 1], [0, 300]);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % heroImages.length);
+    }, 6000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const marqueeLogos = ["Govt of India", "NHAI", "RailTel", "PGCIL", "BSNL", "Adani Infra", "Tata Projects", "L&T Construction"];
 
   return (
     <div className="bg-pattern">
@@ -19,10 +37,19 @@ const Home = () => {
           backgroundColor: 'var(--color-secondary)'
         }}
       >
-        <motion.div style={{ position: 'absolute', inset: 0, zIndex: 1, y }}>
-          <img src="/images/railway_infra_1790011408588.jpg" alt="Infrastructure" style={{ width: '100%', height: '120%', objectFit: 'cover' }} />
-          <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, rgba(15, 23, 42, 0.95) 0%, rgba(15, 23, 42, 0.7) 100%)' }}></div>
-        </motion.div>
+        <AnimatePresence mode="popLayout">
+          <motion.div 
+            key={currentImageIndex}
+            initial={{ opacity: 0, scale: 1.05 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1.5, ease: "easeInOut" }}
+            style={{ position: 'absolute', inset: 0, zIndex: 1, y }}
+          >
+            <img src={heroImages[currentImageIndex]} alt="Infrastructure" style={{ width: '100%', height: '120%', objectFit: 'cover' }} />
+            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, rgba(15, 23, 42, 0.95) 0%, rgba(15, 23, 42, 0.7) 100%)' }}></div>
+          </motion.div>
+        </AnimatePresence>
 
         <div className="container" style={{ position: 'relative', zIndex: 10 }}>
           <motion.div 
@@ -54,15 +81,26 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Infinite Marquee Strip */}
+      <div className="marquee-container">
+        <div className="marquee-content">
+          {[...marqueeLogos, ...marqueeLogos].map((logo, index) => (
+            <span key={index} style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', margin: '0 3rem', fontSize: '1.5rem', fontWeight: 700, color: '#94A3B8', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+              <Building2 size={24} /> {logo}
+            </span>
+          ))}
+        </div>
+      </div>
+
       {/* Corporate Impact Metrics */}
       <section className="section bg-pattern-dark" style={{ borderBottom: '1px solid #1E293B', borderTop: '1px solid #1E293B' }}>
         <div className="container">
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '3rem' }}>
             {[
-              { icon: <Globe />, value: "Pan-India", label: "Operational Presence" },
-              { icon: <BarChart3 />, value: "250+", label: "Projects Completed" },
-              { icon: <Users />, value: "10K+", label: "Skilled Workforce" },
-              { icon: <ShieldCheck />, value: "ISO 9001", label: "Certified Quality" }
+              { icon: <Globe />, value: 25, suffix: " States", label: "Operational Presence" },
+              { icon: <BarChart3 />, value: 250, suffix: "+", label: "Projects Completed" },
+              { icon: <Users />, value: 10, suffix: "K+", label: "Skilled Workforce" },
+              { icon: <ShieldCheck />, value: 9001, suffix: " ISO", label: "Certified Quality" }
             ].map((stat, idx) => (
               <motion.div 
                 key={idx}
@@ -73,7 +111,9 @@ const Home = () => {
                 style={{ display: 'flex', flexDirection: 'column', gap: '1rem', color: 'white' }}
               >
                 <div style={{ color: 'var(--color-accent)' }}>{stat.icon}</div>
-                <div style={{ fontSize: '3.5rem', fontWeight: 800, lineHeight: 1 }}>{stat.value}</div>
+                <div style={{ fontSize: '3.5rem', fontWeight: 800, lineHeight: 1 }}>
+                  <AnimatedCounter value={stat.value} suffix={stat.suffix} />
+                </div>
                 <div style={{ color: '#94A3B8', fontSize: '1.1rem', fontWeight: 500 }}>{stat.label}</div>
               </motion.div>
             ))}

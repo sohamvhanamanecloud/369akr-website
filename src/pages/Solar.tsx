@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, Sun, BatteryCharging, Factory, Home as HomeIcon, LocateFixed, Leaf, LineChart } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import PhotoGallery from '../components/PhotoGallery';
 
 const Solar = () => {
   const features = [
@@ -96,6 +97,9 @@ const Solar = () => {
           </div>
         </div>
       </div>
+      
+      {/* Photo Gallery component */}
+      <PhotoGallery images={["/images/solar_live.jpg", "/images/solar_energy_1790011454687.jpg"]} />
     </div>
   );
 };

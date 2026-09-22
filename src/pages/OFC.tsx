@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, Cable, Network, Shield, Pickaxe, LocateFixed, Server, Settings } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import PhotoGallery from '../components/PhotoGallery';
 
 const OFC = () => {
   const features = [
@@ -96,6 +97,9 @@ const OFC = () => {
           </div>
         </div>
       </div>
+      
+      {/* Photo Gallery component */}
+      <PhotoGallery images={["/images/ofc_live.jpg", "/images/ofc_networks_1790011434623.jpg"]} />
     </div>
   );
 };

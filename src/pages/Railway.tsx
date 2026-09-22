@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, Train, Map, HardHat, ShieldCheck, Activity, Cog, ArrowUpRight, LocateFixed } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import PhotoGallery from '../components/PhotoGallery';
 
 const Railway = () => {
   const features = [
@@ -109,6 +110,9 @@ const Railway = () => {
           </div>
         </div>
       </div>
+      
+      {/* Photo Gallery component */}
+      <PhotoGallery images={["/images/railway_live.jpg", "/images/railway_infra_1790011408588.jpg"]} />
     </div>
   );
 };

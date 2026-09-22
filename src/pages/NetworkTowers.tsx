@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, RadioTower, Signal, Wifi, Zap, Globe2, Shield, Wrench, LocateFixed } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import PhotoGallery from '../components/PhotoGallery';
 
 const NetworkTowers = () => {
   const features = [
@@ -94,6 +95,9 @@ const NetworkTowers = () => {
           </div>
         </div>
       </div>
+
+      {/* Photo Gallery component */}
+      <PhotoGallery images={["/images/telecom_live.jpg", "/images/telecom_towers_1790011421272.jpg"]} />
     </div>
   );
 };

@@ -150,6 +150,31 @@ button {
   }
 }
 
+/* Marquee Animation */
+.marquee-container {
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+  width: 100%;
+  padding: 3rem 0;
+  border-bottom: 1px solid #E2E8F0;
+  background-color: var(--color-surface);
+}
+
+.marquee-content {
+  display: inline-block;
+  animation: marquee 30s linear infinite;
+}
+
+.marquee-content:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
 /* Base button styles */
 .btn {
   display: inline-flex;
